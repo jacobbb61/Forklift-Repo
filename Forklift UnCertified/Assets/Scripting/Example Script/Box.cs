@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Box : MonoBehaviour
 {
+    public UnityEvent OnWeightChange;
+
     private List<Box> boxesAbove;
     private List<Box> boxesBelow;
 
@@ -14,6 +17,8 @@ public class Box : MonoBehaviour
     {
         boxesAbove = new();
         boxesBelow = new();
+        OnWeightChange = new();
+        OnWeightChange.AddListener(InvokeOnWeightChangeRecursive);
     }
 
     public float Weight
@@ -21,15 +26,15 @@ public class Box : MonoBehaviour
         get
         {
             if (boxesAbove.Count == 0)
-                return weight/Mathf.Max(boxesBelow.Count,1);
+                return weight / Mathf.Max(boxesBelow.Count, 1);
             else
             {
                 float runningWeight = 0f;
-                foreach(Box above in boxesAbove)
+                foreach (Box above in boxesAbove)
                 {
                     runningWeight += above.Weight;
                 }
-                return (runningWeight + weight)/ Mathf.Max(boxesBelow.Count, 1);
+                return (runningWeight + weight) / Mathf.Max(boxesBelow.Count, 1);
             }
         }
     }
@@ -58,11 +63,20 @@ public class Box : MonoBehaviour
 
     }
 
+    public void InvokeOnWeightChangeRecursive()
+    {
+        foreach(Box box in boxesBelow)
+        {
+            box.OnWeightChange.Invoke();
+            box.InvokeOnWeightChangeRecursive();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.body!=null && collision.body.gameObject.TryGetComponent<Box>(out Box box))
+        if (collision.body != null && collision.body.gameObject.TryGetComponent<Box>(out Box box))
         {
-            if(collision.body.transform.position.y > transform.position.y + 0.4f)
+            if (collision.body.transform.position.y > transform.position.y + 0.4f)
             {
                 boxesAbove.Add(box);
             }
@@ -70,6 +84,8 @@ public class Box : MonoBehaviour
             {
                 boxesBelow.Add(box);
             }
+            OnWeightChange.Invoke();
+            box.InvokeOnWeightChangeRecursive();
         }
     }
 
@@ -77,14 +93,10 @@ public class Box : MonoBehaviour
     {
         if (collision.body != null && collision.body.gameObject.TryGetComponent<Box>(out Box box))
         {
-            if (collision.body.transform.position.y > transform.position.y + 0.4f)
-            {
-                boxesAbove.Remove(box);
-            }
-            else if (collision.body.transform.position.y < transform.position.y - 0.4f)
-            {
-                boxesBelow.Remove(box);
-            }
+            boxesAbove.Remove(box);
+            boxesBelow.Remove(box);
+            OnWeightChange.Invoke();
+            box.InvokeOnWeightChangeRecursive();
         }
     }
 }
