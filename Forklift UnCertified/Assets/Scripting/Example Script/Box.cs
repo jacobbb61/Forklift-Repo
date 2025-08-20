@@ -6,7 +6,15 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
 
-    public float weight = 1;
+    [SerializeField] private float weight = 1;
+
+    public float Weight
+    {
+        get
+        {
+            return weight;
+        }
+    }
 
     public bool playerPushable = true;
 
