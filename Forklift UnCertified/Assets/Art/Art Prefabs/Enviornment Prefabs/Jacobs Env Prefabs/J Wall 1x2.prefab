@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 386243388319823832}
   - component: {fileID: 4393575058383084833}
   - component: {fileID: 3205116910249141561}
+  - component: {fileID: -3050395395726612796}
   m_Layer: 0
   m_Name: J Wall 1x2
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-3050395395726612796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546652733115120376}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.20000003, z: 2.0000005}
+  m_Center: {x: 0, y: 0.100000046, z: 1.0000002}
