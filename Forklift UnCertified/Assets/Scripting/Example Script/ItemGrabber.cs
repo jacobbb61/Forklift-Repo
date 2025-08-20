@@ -8,9 +8,9 @@ public class ItemGrabber : MonoBehaviour
 {
 
 
-    private Box curBox;
+    public Box curBox;
     public bool boxHeld;
-    private Vector3 boxOfset = new();
+    private Vector3 boxOffset = new();
 
     private void OnTriggerStay(Collider other)
     {
@@ -43,11 +43,11 @@ public class ItemGrabber : MonoBehaviour
             return;
 
         curBox.transform.parent = transform.GetChild(0);
-        boxOfset = curBox.transform.localPosition;
+        boxOffset = curBox.transform.localPosition;
 
-        Destroy(curBox.GetComponent<Rigidbody>());
-
-        
+        //Destroy(curBox.GetComponent<Rigidbody>());
+        curBox.GetComponent<Rigidbody>().isKinematic = true;
+        curBox.PickUp();
 
         boxHeld = true;
 
@@ -59,9 +59,10 @@ public class ItemGrabber : MonoBehaviour
         if (!boxHeld)
             return;
 
-        curBox.AddComponent<Rigidbody>();
+        //curBox.AddComponent<Rigidbody>();
+        curBox.GetComponent<Rigidbody>().isKinematic = false;
         curBox.transform.parent = null;
-
+        curBox.PutDown();
         boxHeld = false;
 
     }

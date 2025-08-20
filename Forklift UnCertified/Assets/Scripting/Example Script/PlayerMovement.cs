@@ -75,7 +75,17 @@ public class PlayerMovement : MonoBehaviour
     {
 
         lift = !lift;
-
+        if(grabber.boxHeld)
+        {
+            if(lift)
+            {
+                grabber.curBox.Lift();
+            }
+            else
+            {
+                grabber.curBox.Lower();
+            }
+        }
         anim.SetBool("LiftUp", lift);
 
     }
