@@ -8,14 +8,17 @@ public class SchlingBox : Box
     public Transform schlingPoint;
     public float distanceFromPoint;
     public float distanceTillTension;
-    public float tensionModifier;
+    public float tensionModifier_Box;
+    public float tensionModifier_Player;
 
     private Rigidbody rb;
     private LineRenderer line;
+    private Rigidbody playerRb;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         line = GetComponent<LineRenderer>();
+        playerRb = FindAnyObjectByType<PlayerMovement>().gameObject.GetComponent<Rigidbody>();
     }
     public override void Lift()
     {
@@ -39,6 +42,7 @@ public class SchlingBox : Box
         isHeld = false;
     }
 
+    
 
     private void LateUpdate()
     {
@@ -47,17 +51,21 @@ public class SchlingBox : Box
 
         distanceFromPoint = Vector3.Distance(transform.position, schlingPoint.position);
 
-        if (isHeld) 
+        if (isHeld)
         {
+            if (distanceFromPoint >= distanceTillTension)
+            {
+                Vector3 dir = schlingPoint.position - transform.position;
+                playerRb.AddForce(dir * distanceFromPoint * tensionModifier_Player);
+            }
             rb.velocity = Vector3.zero;
         }
         else
         {
             if(distanceFromPoint >= distanceTillTension)
             {
-                //  rb.MovePosition(schlingPoint.position * Time.deltaTime * distanceFromPoint * tensionModifier);
                 Vector3 dir = schlingPoint.position - transform.position;
-                rb.AddForce(dir * distanceFromPoint * tensionModifier);
+                rb.AddForce(dir * distanceFromPoint * tensionModifier_Box);
             }
         }
 

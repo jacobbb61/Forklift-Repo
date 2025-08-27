@@ -59,6 +59,7 @@ public class ItemGrabber : MonoBehaviour
         if (!boxHeld)
             return;
 
+
         //curBox.AddComponent<Rigidbody>();
         curBox.GetComponent<Rigidbody>().isKinematic = false;
         curBox.transform.parent = null;

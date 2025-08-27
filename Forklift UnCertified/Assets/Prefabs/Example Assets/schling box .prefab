@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1593211230938246013}
   - component: {fileID: 3480097390263964800}
   - component: {fileID: 3301160223564247615}
+  - component: {fileID: 4944900559103337154}
   - component: {fileID: 5100027272612455684}
   - component: {fileID: 2683637880762687293}
   - component: {fileID: 7885041871014475234}
-  - component: {fileID: 4944900559103337154}
   m_Layer: 0
   m_Name: Schling Sh-Box
   m_TagString: Untagged
@@ -88,6 +88,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4944900559103337154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5346707977057997617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082d5b3fa6eb5b6469db6888349ae587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnWeightChange:
+    m_PersistentCalls:
+      m_Calls: []
+  weight: 1
+  playerPushable: 1
+  playerCoefficientOfRestitution: 0.2
+  isHeld: 0
+  schlingPoint: {fileID: 7386831728845949041}
+  distanceFromPoint: 0
+  distanceTillTension: 5
+  tensionModifier_Box: 0.1
+  tensionModifier_Player: 0.1
 --- !u!65 &5100027272612455684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -240,29 +264,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &4944900559103337154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5346707977057997617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082d5b3fa6eb5b6469db6888349ae587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnWeightChange:
-    m_PersistentCalls:
-      m_Calls: []
-  weight: 1
-  playerPushable: 1
-  playerCoefficientOfRestitution: 0.2
-  isHeld: 0
-  schlingPoint: {fileID: 7386831728845949041}
-  distanceFromPoint: 0
-  distanceTillTension: 5
-  tensionModifier: 1
 --- !u!1 &5917094590074120485
 GameObject:
   m_ObjectHideFlags: 0

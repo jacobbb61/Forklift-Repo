@@ -93,10 +93,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.rigidbody!=null && collision.rigidbody.gameObject.TryGetComponent<Box>(out Box b) && b.playerPushable)
+        if(collision.rigidbody!=null && collision.rigidbody.gameObject.TryGetComponent<Box>(out Box b) && !b.playerPushable)
         {
+            collision.rigidbody.velocity = new Vector3(0,collision.rigidbody.velocity.y,0);
+            /*
             collision.rigidbody.AddForce(body.velocity * body.mass * b.playerCoefficientOfRestitution);
             body.AddForce(-body.velocity * body.mass * b.playerCoefficientOfRestitution);
+            */
         }
     }
 }
