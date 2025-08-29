@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2905691156391421590}
   - component: {fileID: 7193854455173626464}
   - component: {fileID: 1597228376764594746}
+  - component: {fileID: 473496254685272077}
   m_Layer: 0
   m_Name: Elevator Base
   m_TagString: Untagged
@@ -83,6 +84,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &473496254685272077
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880627804658189927}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2970647539079961360, guid: 18e0c04486ee7eb4a9118bec23468b0d, type: 3}
 --- !u!1 &5189809037149830024
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +117,7 @@ GameObject:
   - component: {fileID: 5365813953904196546}
   - component: {fileID: 8797611233525297471}
   - component: {fileID: 7880398264448413498}
+  - component: {fileID: 6711739623789626018}
   m_Layer: 0
   m_Name: Elevator Frame
   m_TagString: Untagged
@@ -110,8 +134,8 @@ Transform:
   m_GameObject: {fileID: 5189809037149830024}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00000018626451, y: 0.95000005, z: -2}
-  m_LocalScale: {x: 0.13846381, y: 0.100000024, z: 0.100000024}
+  m_LocalPosition: {x: -0.00000018626451, y: 2.4546, z: -2}
+  m_LocalScale: {x: 0.13846381, y: 0.100000024, z: 0.24330775}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8204529870352519587}
@@ -166,6 +190,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6711739623789626018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189809037149830024}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.0341111, z: 20.999992}
+  m_Center: {x: 0.0000011026859, y: -0.4829442, z: -0.0000009536743}
 --- !u!1 &7529261844020560120
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +222,7 @@ GameObject:
   - component: {fileID: 7677440800346437999}
   - component: {fileID: 3043370112692901121}
   - component: {fileID: 24983372781434203}
+  - component: {fileID: 6686913129778381067}
   m_Layer: 0
   m_Name: Elevator Platform
   m_TagString: Untagged
@@ -193,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 7529261844020560120}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.9943962, z: 0}
+  m_LocalPosition: {x: -0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.100000024}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,6 +295,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6686913129778381067
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529261844020560120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8693887309826660877, guid: 18e0c04486ee7eb4a9118bec23468b0d, type: 3}
 --- !u!1 &8826760020367073237
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8826760020367073237}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000025629995}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: -10.75, y: -5, z: -90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
